@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Bai 1</title>
+</head>
+<body>
+<h1>Enter a number: </h1>
+<input type="number" id="inputNumber" width="200px">
+<input type="button" value="Show" onclick="show()">
+<br/>
+<p id="result"></p>
+
+<script>
+    let inputNum=parseInt(document.getElementById("inputNumber").value);
+    function show(n) {
+
+        let flag = true;
+        if (n < 2) {
+            flag = false;
+        } else if (n === 2) {
+            flag = true;
+        } else if (n % 2 === 0) {
+            flag = false;
+        } else {
+            // lặp từ 3 tới n-1 với bước nhảy là 2 (i+=2)
+            for (let i = 3; i < n - 1; i += 2) {
+                if (n % i === 0) {
+                    flag = false;
+                    break;
+                }
+            }
+        }
+        // Kiểm tra biến flag
+        if (flag === true) {
+            document.write(n + " là số nguyên tố <br/>");
+        } else {
+            document.write(n + " không phải là số nguyên tố <br/>");
+        }
+    }
+
+    for (let j=0;j<inputNum;j++){
+        ktraSnt(n);
+    }
+
+</script>
+
+</body>
+</html>
